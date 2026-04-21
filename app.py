@@ -9,7 +9,6 @@ CORS(app)
 devices = []
 current_id = 1
 
-# Validación
 def validar_device(data):
     if not data:
         return False
@@ -20,17 +19,14 @@ def validar_device(data):
             return False
     return True
 
-# Ruta base
 @app.route('/')
 def home():
     return jsonify({"mensaje": "API Inventario TI funcionando"}), 200
 
-# GET todos
 @app.route('/devices', methods=['GET'])
 def get_devices():
     return jsonify(devices), 200
 
-# GET uno
 @app.route('/devices/<int:id>', methods=['GET'])
 def get_device(id):
     for device in devices:
@@ -38,7 +34,6 @@ def get_device(id):
             return jsonify(device), 200
     return jsonify({"error": "No encontrado"}), 404
 
-# POST
 @app.route('/devices', methods=['POST'])
 def create_device():
     global current_id
@@ -61,7 +56,6 @@ def create_device():
 
     return jsonify(new_device), 201
 
-# PUT
 @app.route('/devices/<int:id>', methods=['PUT'])
 def update_device(id):
     data = request.get_json()
@@ -81,7 +75,6 @@ def update_device(id):
 
     return jsonify({"error": "No encontrado"}), 404
 
-# DELETE
 @app.route('/devices/<int:id>', methods=['DELETE'])
 def delete_device(id):
     for device in devices:
@@ -91,7 +84,6 @@ def delete_device(id):
 
     return jsonify({"error": "No encontrado"}), 404
 
-# Ejecutar en Render
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
