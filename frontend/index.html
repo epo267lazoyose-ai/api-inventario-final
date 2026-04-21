@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>IT Inventory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>IT Inventory</h1>
+
+  <div class="form">
+    <input id="nombre" placeholder="Nombre">
+    <input id="tipo" placeholder="Tipo">
+    <input id="estado" placeholder="Estado">
+    <input id="area" placeholder="Área">
+    <button onclick="agregar()">Agregar</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Estado</th>
+        <th>Área</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="lista"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
